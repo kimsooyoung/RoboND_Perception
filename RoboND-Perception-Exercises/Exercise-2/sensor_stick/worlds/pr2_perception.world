@@ -520,7 +520,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
       </link>
-      <joint name='left_wheel' type='revolute'>
+      <joint name='left_wheel_joint' type='revolute'>
         <parent>base</parent>
         <child>left_wheel</child>
         <axis>
@@ -536,7 +536,7 @@
           </dynamics>
         </axis>
       </joint>
-      <joint name='right_wheel' type='revolute'>
+      <joint name='right_wheel_joint' type='revolute'>
         <parent>base</parent>
         <child>right_wheel</child>
         <axis>
