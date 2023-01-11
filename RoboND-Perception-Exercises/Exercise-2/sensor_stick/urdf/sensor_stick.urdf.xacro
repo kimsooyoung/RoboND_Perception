@@ -138,7 +138,7 @@
   </joint>
 
   <!--Transmission and actuators-->
-  <!-- <transmission name="tran1">
+  <transmission name="tran1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="pan_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
@@ -147,9 +147,9 @@
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission> -->
+  </transmission>
 
-  <!-- <transmission name="tran2">
+  <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="tilt_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
@@ -158,5 +158,5 @@
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission> -->
+  </transmission>
 </robot>

@@ -107,7 +107,16 @@ def pcl_to_ros(pcl_array):
 
         buffer.append(struct.pack('ffffBBBBIII', data[0], data[1], data[2], 1.0, b, g, r, 0, 0, 0, 0))
 
-    ros_msg.data = "".join(buffer)
+    # join error fixed
+    try:
+        ros_msg.data = b"".join(buffer)
+    except Exception as e:
+        print(e)
+    finally:
+        pass
+        # f = open("/home/kimsooyoung/log.txt", 'w')
+        # f.write(str(ros_msg.data))
+        # f.close()
 
     return ros_msg
 
@@ -212,6 +221,6 @@ def get_color_list(cluster_count):
             (list): List containing 3-element color lists
     """
     if (cluster_count > len(get_color_list.color_list)):
-        for i in xrange(len(get_color_list.color_list), cluster_count):
+        for i in range(len(get_color_list.color_list), cluster_count):
             get_color_list.color_list.append(random_color_gen())
     return get_color_list.color_list
