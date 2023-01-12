@@ -81,3 +81,4 @@ for idx, xpts in enumerate(kmeans_clusters_x):
     plt.title('k-means Clusters', fontsize=20)
 fig.tight_layout()
 plt.subplots_adjust(left=0.03, right=0.98, top=0.9, bottom=0.05)
+plt.show()
