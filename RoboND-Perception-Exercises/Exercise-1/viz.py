@@ -3,7 +3,7 @@ import numpy as np
 import pcl.pcl_visualization
 
 def main():
-    cloud = pcl.load("viz_test.pcd")
+    cloud = pcl.load("tabletop.pcd")
 
     # Centred the data
     centred = cloud - np.mean(cloud, 0)
