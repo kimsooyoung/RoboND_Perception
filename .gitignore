@@ -1,0 +1,4 @@
+extra*.jpeg
+image*.jpeg
+Object Recognition/**/dataset/
+*.zip

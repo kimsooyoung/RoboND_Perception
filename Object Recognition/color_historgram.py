@@ -34,7 +34,7 @@ def color_hist(img, nbins=32, bins_range=(0, 256)):
     # norm_features = None
     return norm_features
     
-feature_vec = color_hist(image, nbins=32, bins_range=(0, 256))
+feature_vec = color_hist(image, nbins=128, bins_range=(0, 256))
 
 # Plot a figure with all three bar charts
 if feature_vec is not None:
