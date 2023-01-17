@@ -90,7 +90,8 @@ def initial_setup():
 
 
     delete_model_prox = rospy.ServiceProxy('gazebo/delete_model', DeleteModel)
-    delete_model_prox('ground_plane')
+    # My edit: ground plane deleted for hammer
+    # delete_model_prox('ground_plane')
 
 
 def spawn_model(model_name):

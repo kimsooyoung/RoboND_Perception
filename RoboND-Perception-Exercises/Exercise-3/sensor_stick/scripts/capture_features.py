@@ -2,6 +2,7 @@
 import numpy as np
 import pickle
 import rospy
+import time
 
 from sensor_stick.pcl_helper import *
 from sensor_stick.training_helper import spawn_model
@@ -29,16 +30,21 @@ if __name__ == '__main__':
        'create',
        'disk_part',
        'hammer',
-       'plastic_cup',
-       'soda_can']
+       'plastic_cup',]
+    #    'soda_can']
+    
+    # soda_can has error during deletion
+    # models = ['soda_can']
 
     # Disable gravity and delete the ground plane
     initial_setup()
     labeled_features = []
 
     for model_name in models:
+        rospy.loginfo(f"Current model : {model_name}")
         spawn_model(model_name)
-
+        time.sleep(1)
+        
         for i in range(5):
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
@@ -60,9 +66,9 @@ if __name__ == '__main__':
             nhists = compute_normal_histograms(normals)
             feature = np.concatenate((chists, nhists))
             labeled_features.append([feature, model_name])
-
+            time.sleep(0.5)
         delete_model()
-
-
+        time.sleep(1)
+        
     pickle.dump(labeled_features, open('training_set.sav', 'wb'))
 
