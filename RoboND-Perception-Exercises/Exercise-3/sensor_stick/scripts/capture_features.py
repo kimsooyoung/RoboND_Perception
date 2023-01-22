@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 import numpy as np
 import pickle
 import rospy
@@ -34,7 +35,7 @@ if __name__ == '__main__':
     #    'soda_can']
     
     # soda_can has error during deletion
-    # models = ['soda_can']
+    # models = ['beer']
 
     # Disable gravity and delete the ground plane
     initial_setup()
@@ -43,14 +44,16 @@ if __name__ == '__main__':
     for model_name in models:
         rospy.loginfo(f"Current model : {model_name}")
         spawn_model(model_name)
-        time.sleep(1)
+        # time.sleep(1)
         
-        for i in range(5):
+        for i in range(6):
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
             try_count = 0
             while not sample_was_good and try_count < 5:
                 sample_cloud = capture_sample()
+                print('retry')
+                # time.sleep(0.5)
                 sample_cloud_arr = ros_to_pcl(sample_cloud).to_array()
 
                 # Check for invalid clouds.
@@ -61,12 +64,12 @@ if __name__ == '__main__':
                     sample_was_good = True
 
             # Extract histogram features
-            chists = compute_color_histograms(sample_cloud, using_hsv=False)
+            chists = compute_color_histograms(sample_cloud, using_hsv=True)
             normals = get_normals(sample_cloud)
             nhists = compute_normal_histograms(normals)
             feature = np.concatenate((chists, nhists))
             labeled_features.append([feature, model_name])
-            time.sleep(0.5)
+            # time.sleep(0.5)
         delete_model()
         time.sleep(1)
         

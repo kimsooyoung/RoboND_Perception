@@ -13,6 +13,7 @@ import math
 import random
 import rospy
 import rospkg
+import time
 import tf
 
 from sensor_stick.srv import GetNormals
@@ -37,6 +38,7 @@ def capture_sample():
     """
     get_model_state_prox = rospy.ServiceProxy('gazebo/get_model_state',GetModelState)
     model_state = get_model_state_prox('training_model','world')
+    rospy.loginfo("get_model_state_prox Succeed")
 
     set_model_state_prox = rospy.ServiceProxy('gazebo/set_model_state', SetModelState)
 
@@ -54,8 +56,10 @@ def capture_sample():
     sms_req.model_state.model_name = 'training_model'
     sms_req.model_state.reference_frame = 'world'
     set_model_state_prox(sms_req)
+    # time.sleep(0.5)
+    rospy.loginfo("set_model_state_prox Succeed")
 
-    return rospy.wait_for_message('/sensor_stick/point_cloud', PointCloud2)
+    return rospy.wait_for_message('/camera/depth_registered/points', PointCloud2)
 
 
 def initial_setup():

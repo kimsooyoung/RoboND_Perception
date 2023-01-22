@@ -1,7 +1,8 @@
 <launch>
   <!--Include description and control launch files-->
   <include file="$(find sensor_stick)/launch/robot_description.launch"/>
-  <include file="$(find sensor_stick)/launch/robot_control.launch"/>
+  <!-- We don't need control now -->
+  <!-- <include file="$(find sensor_stick)/launch/robot_control.launch"/> -->
 
   <!--Launch a gazebo world-->
   <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
@@ -15,5 +16,9 @@
 
   <!-- The feature extractor node -->
   <node name="feature_extractor" pkg="sensor_stick" type="feature_extractor" respawn="false"/>
+
+  <!-- launch rviz-->
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false"
+    output="screen" args="-d $(find sensor_stick)/config/perception.rviz"/>
 
 </launch>

@@ -64,13 +64,15 @@
        <depthImageCameraInfoTopicName>/camera/depth_registered/camera_info</depthImageCameraInfoTopicName>
        <pointCloudTopicName>/camera/depth_registered/points</pointCloudTopicName>
        <frameName>camera_rgb_optical_frame</frameName>
-       <pointCloudCutoff>0.35</pointCloudCutoff>
+       <!-- <pointCloudCutoff>0.35</pointCloudCutoff> -->
+       <pointCloudCutoff>0.001</pointCloudCutoff>
        <pointCloudCutoffMax>4.5</pointCloudCutoffMax>
+       <!-- <pointCloudCutoffMax>300.0</pointCloudCutoffMax> -->
        <CxPrime>0</CxPrime>
        <Cx>0</Cx>
        <Cy>0</Cy>
        <focalLength>0</focalLength>
-       <hackBaseline>0</hackBaseline>
+       <hackBaseline>0.07</hackBaseline>
      </plugin>
    </sensor>
   </gazebo>
