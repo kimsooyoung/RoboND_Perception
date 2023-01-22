@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import numpy as np
 import sklearn
@@ -6,15 +6,15 @@ from sklearn.preprocessing import LabelEncoder
 
 import pickle
 
-from sensor_stick.srv import GetNormals
-from sensor_stick.features import compute_color_histograms
-from sensor_stick.features import compute_normal_histograms
+from sensor_stick2.srv import GetNormals
+from sensor_stick2.features import compute_color_histograms
+from sensor_stick2.features import compute_normal_histograms
 from visualization_msgs.msg import Marker
 
-from sensor_stick.marker_tools import *
-from sensor_stick.msg import DetectedObjectsArray
-from sensor_stick.msg import DetectedObject
-from sensor_stick.pcl_helper import *
+from sensor_stick2.marker_tools import *
+from sensor_stick2.msg import DetectedObjectsArray
+from sensor_stick2.msg import DetectedObject
+from sensor_stick2.pcl_helper import *
 
 def get_normals(cloud):
     get_normals_prox = rospy.ServiceProxy('/feature_extractor/get_normals', GetNormals)

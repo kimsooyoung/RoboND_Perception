@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(sensor_stick)
+project(sensor_stick2)
 
 ## Add support for C++11, supported in ROS Kinetic and newer
 # add_definitions(-std=c++11)
@@ -118,7 +118,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES sensor_stick
+#  LIBRARIES sensor_stick2
    CATKIN_DEPENDS message_runtime
 #  DEPENDS system_lib
 )
@@ -136,7 +136,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/sensor_stick.cpp
+#   src/${PROJECT_NAME}/sensor_stick2.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -159,7 +159,7 @@ add_executable(feature_extractor src/feature_extractor.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(cloud_transformer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_gencfg)
-add_dependencies(feature_extractor sensor_stick_gencpp)
+add_dependencies(feature_extractor sensor_stick2_gencpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(cloud_transformer ${catkin_LIBRARIES})
@@ -205,7 +205,7 @@ target_link_libraries(feature_extractor ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_sensor_stick.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_sensor_stick2.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -1,7 +1,7 @@
 import matplotlib.colors
 import matplotlib.pyplot as plt
 import numpy as np
-from sensor_stick.pcl_helper import *
+from sensor_stick2.pcl_helper import *
 
 
 def rgb_to_hsv(rgb_list):

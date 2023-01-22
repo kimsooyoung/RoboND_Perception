@@ -17,8 +17,8 @@
 #include <pcl/features/vfh.h>
 #include <sensor_msgs/PointCloud2.h>
 
-#include <sensor_stick/GetNormals.h>
-//#include <sensor_stick/GetFloatArrayFeature.h>
+#include <sensor_stick2/GetNormals.h>
+//#include <sensor_stick2/GetFloatArrayFeature.h>
 
 /*
 * Brief:
@@ -75,7 +75,7 @@ private:
     normals_out_pub_.publish(normals_out_msg);
   }
 
-  bool getNormalsReq(sensor_stick::GetNormals::Request &req, sensor_stick::GetNormals::Response &rsp)
+  bool getNormalsReq(sensor_stick2::GetNormals::Request &req, sensor_stick2::GetNormals::Response &rsp)
   {
     rsp.cluster = req.cluster;
 
@@ -105,7 +105,7 @@ private:
 
 };  // FeatureExtractor
 
-// bool getVFHReq(sensor_stick::GetNormals::Request &req, sensor_stick::GetNormals::Response &rsp)
+// bool getVFHReq(sensor_stick2::GetNormals::Request &req, sensor_stick2::GetNormals::Response &rsp)
 // {
 //   pcl::PointCloud<pcl::PointXYZ> *p_cloud = new pcl::PointCloud<pcl::PointXYZ>();
 //   const boost::shared_ptr<pcl::PointCloud<pcl::PointXYZ> > sp_pcl_cloud(p_cloud);
